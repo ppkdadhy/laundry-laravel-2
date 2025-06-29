@@ -1,10 +1,11 @@
 <?php
 
+use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BelajarController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\DashboardController;
-use App\Models\Service;
+use App\Http\Controllers\TransactionController;
 use PHPUnit\Architecture\Services\ServiceContainer;
 
 // Route::get('/', function () {
@@ -30,6 +31,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('recycle/service', [ServiceController::class, 'recycle']);
     Route::get('service/restore/{id}', [ServiceController::class, 'restore'])->name('service.restore');
     Route::delete('service/destroy/{id}', [ServiceController::class, 'destroy'])->name('service.destroy');
+
+
+    //TRANSACTION
+    Route::get('transaction', [TransactionController::class, 'index'])->name('transaction');
+    Route::get('order/transaction', [TransactionController::class, 'create']);
+    Route::get('/search-customers', [TransactionController::class, 'searchCustomer']);
+    Route::post('transaction/store', [TransactionController::class, 'store'])->name('transaction.store');
+    Route::get('pay/order/{id}', [TransactionController::class, 'show']);
+    Route::put('paid/order/{id}', [TransactionController::class, 'paid'])->name('paid.order');
 });
 
 

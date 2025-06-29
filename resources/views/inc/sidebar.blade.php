@@ -3,7 +3,7 @@
      <ul class="sidebar-nav" id="sidebar-nav">
 
          <li class="nav-item">
-             <a class="nav-link collapsed" href="index.html">
+             <a class="nav-link collapsed" href="{{ url('dashboard') }}">
                  <i class="bi bi-grid"></i>
                  <span>Dashboard</span>
              </a>
@@ -87,6 +87,12 @@
                  </li> --}}
              </ul>
          </li><!-- End Components Nav -->
+                  <li class="nav-item">
+             <a class="nav-link collapsed" href="{{ url('transaction') }}">
+                 <i class="bi bi-grid"></i>
+                 <span>Transaction</span>
+             </a>
+         </li>
 
      </ul>
 
