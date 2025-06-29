@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 25, 2025 at 03:55 PM
+-- Generation Time: Jun 29, 2025 at 08:26 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -61,6 +61,36 @@ CREATE TABLE `counts` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customers`
+--
+
+CREATE TABLE `customers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `customer_name` varchar(255) DEFAULT NULL,
+  `address` text DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`id`, `customer_name`, `address`, `phone`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(17, 'Nyana Sihotang', 'Dk. Wahidin Sudirohusodo No. 422, Administrasi Jakarta Pusat 52716, Malut', '(+62) 229 9139 490', '2025-06-29 03:56:19', '2025-06-29 03:56:19', NULL),
+(18, 'Oliva Rahmi Yuniar', 'Jr. Suniaraja No. 933, Palembang 43466, Bengkulu', '(+62) 417 0525 0169', '2025-06-29 03:56:19', '2025-06-29 03:56:19', NULL),
+(19, 'Jagaraga Bala Hutagalung', 'Ki. Juanda No. 977, Sabang 27050, Maluku', '0390 7590 803', '2025-06-29 03:56:19', '2025-06-29 03:56:19', NULL),
+(20, 'Farah Puspasari S.T.', 'Psr. Wahidin No. 325, Surabaya 85038, Sulsel', '(+62) 819 225 968', '2025-06-29 03:56:19', '2025-06-29 03:56:19', NULL),
+(21, 'Dinda Halimah', 'Ds. Karel S. Tubun No. 818, Padang 52749, Sumbar', '0808 345 150', '2025-06-29 03:56:19', '2025-06-29 03:56:19', NULL),
+(22, 'Halim Thamrin S.Psi', 'Ki. Padang No. 77, Serang 56776, Kalsel', '(+62) 594 0268 149', '2025-06-29 03:56:19', '2025-06-29 03:56:19', NULL),
+(23, 'Danang Erik Hardiansyah S.Ked', 'Dk. Baik No. 476, Cimahi 81100, Pabar', '(+62) 299 3224 4869', '2025-06-29 03:56:19', '2025-06-29 03:56:19', NULL),
+(24, 'Lili Nurdiyanti', 'Kpg. Suryo Pranoto No. 822, Medan 49554, Jateng', '(+62) 819 6433 8977', '2025-06-29 03:56:19', '2025-06-29 03:56:19', NULL);
 
 -- --------------------------------------------------------
 
@@ -135,7 +165,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '0001_01_01_000002_create_jobs_table', 1),
 (4, '2025_06_23_022059_create_counts_table', 1),
 (5, '2025_06_25_063805_create_services_table', 1),
-(6, '2025_06_25_124206_change_service_name_on_type_of_services_table', 2);
+(6, '2025_06_25_124206_change_service_name_on_type_of_services_table', 2),
+(7, '2025_06_29_104148_create_customers_table', 3),
+(8, '2025_06_29_145008_create_trans_order_table', 4),
+(9, '2025_06_29_150217_create_trans_order_detail_table', 5);
 
 -- --------------------------------------------------------
 
@@ -169,7 +202,62 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('5nJOrgAEWfK1DsVRKYATTP7OEICCRl86J8w6ABWK', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edg/137.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiTDBndktlMlZmOVRzMDBlRlpaeEJaUTQwMFUxZGFaUXg5VzRUd1gwdiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9zZXJ2aWNlIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6Mjt9', 1750859619);
+('303af3Ecy9OjrkWDXlVVyNpDJCcElNE8MHtDSna5', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edg/137.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiRGo5SGFXM0JxMkxXVXVGdjRuWWdiSHBaV0tHcTNSb1BEOVJwQXRKdiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wYXkvb3JkZXIvMTEiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToyO30=', 1751221166);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `trans_order`
+--
+
+CREATE TABLE `trans_order` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `id_customer` bigint(20) UNSIGNED NOT NULL,
+  `order_code` varchar(60) DEFAULT NULL,
+  `order_date` datetime NOT NULL,
+  `order_end_date` datetime NOT NULL,
+  `order_status` tinyint(4) NOT NULL DEFAULT 1,
+  `order_pay` int(11) DEFAULT NULL,
+  `order_change` int(11) DEFAULT NULL,
+  `total` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `trans_order`
+--
+
+INSERT INTO `trans_order` (`id`, `id_customer`, `order_code`, `order_date`, `order_end_date`, `order_status`, `order_pay`, `order_change`, `total`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(10, 17, 'TR-172255', '2025-06-29 15:55:46', '2025-06-30 22:55:00', 0, 15000, 3000, 12000, '2025-06-29 08:56:11', '2025-06-29 11:04:05', NULL),
+(11, 18, 'TR-18113', '2025-06-29 18:12:57', '2025-07-01 01:13:00', 1, NULL, NULL, 21000, '2025-06-29 11:13:31', '2025-06-29 11:13:31', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `trans_order_detail`
+--
+
+CREATE TABLE `trans_order_detail` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `id_order` bigint(20) UNSIGNED NOT NULL,
+  `id_service` bigint(20) UNSIGNED NOT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `subtotal` double DEFAULT NULL,
+  `notes` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `trans_order_detail`
+--
+
+INSERT INTO `trans_order_detail` (`id`, `id_order`, `id_service`, `qty`, `subtotal`, `notes`, `created_at`, `updated_at`) VALUES
+(3, 10, 10, 1, 7000, 'tes', '2025-06-29 08:56:11', '2025-06-29 08:56:11'),
+(4, 10, 9, 1, 5000, NULL, '2025-06-29 08:56:11', '2025-06-29 08:56:11'),
+(5, 11, 10, 3, 21000, 'gg', '2025-06-29 11:13:31', '2025-06-29 11:13:31');
 
 -- --------------------------------------------------------
 
@@ -244,6 +332,13 @@ ALTER TABLE `counts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `customers`
+--
+ALTER TABLE `customers`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `customers_phone_unique` (`phone`);
+
+--
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -284,6 +379,21 @@ ALTER TABLE `sessions`
   ADD KEY `sessions_last_activity_index` (`last_activity`);
 
 --
+-- Indexes for table `trans_order`
+--
+ALTER TABLE `trans_order`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `trans_order_id_customer_foreign` (`id_customer`);
+
+--
+-- Indexes for table `trans_order_detail`
+--
+ALTER TABLE `trans_order_detail`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `trans_order_detail_id_order_foreign` (`id_order`),
+  ADD KEY `trans_order_detail_id_service_foreign` (`id_service`);
+
+--
 -- Indexes for table `type_of_services`
 --
 ALTER TABLE `type_of_services`
@@ -307,6 +417,12 @@ ALTER TABLE `counts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `customers`
+--
+ALTER TABLE `customers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -322,7 +438,19 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `trans_order`
+--
+ALTER TABLE `trans_order`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `trans_order_detail`
+--
+ALTER TABLE `trans_order_detail`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `type_of_services`
@@ -335,6 +463,23 @@ ALTER TABLE `type_of_services`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `trans_order`
+--
+ALTER TABLE `trans_order`
+  ADD CONSTRAINT `trans_order_id_customer_foreign` FOREIGN KEY (`id_customer`) REFERENCES `customers` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `trans_order_detail`
+--
+ALTER TABLE `trans_order_detail`
+  ADD CONSTRAINT `trans_order_detail_id_order_foreign` FOREIGN KEY (`id_order`) REFERENCES `trans_order` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `trans_order_detail_id_service_foreign` FOREIGN KEY (`id_service`) REFERENCES `type_of_services` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
