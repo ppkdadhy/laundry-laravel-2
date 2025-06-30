@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2025 at 08:26 PM
+-- Generation Time: Jun 30, 2025 at 04:09 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -146,6 +146,29 @@ CREATE TABLE `job_batches` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `levels`
+--
+
+CREATE TABLE `levels` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `level_name` varchar(50) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `levels`
+--
+
+INSERT INTO `levels` (`id`, `level_name`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Administrator', '2025-06-30 06:13:28', '2025-06-30 06:13:28', NULL),
+(2, 'Operator', '2025-06-30 06:13:28', '2025-06-30 06:13:28', NULL),
+(3, 'Pimpinan', '2025-06-30 06:13:28', '2025-06-30 06:13:28', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -168,7 +191,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (6, '2025_06_25_124206_change_service_name_on_type_of_services_table', 2),
 (7, '2025_06_29_104148_create_customers_table', 3),
 (8, '2025_06_29_145008_create_trans_order_table', 4),
-(9, '2025_06_29_150217_create_trans_order_detail_table', 5);
+(9, '2025_06_29_150217_create_trans_order_detail_table', 5),
+(13, '2025_06_30_125333_create_levels_table', 6),
+(14, '2025_06_30_125051_add_id_level_to_users_table', 7);
 
 -- --------------------------------------------------------
 
@@ -202,7 +227,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('303af3Ecy9OjrkWDXlVVyNpDJCcElNE8MHtDSna5', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edg/137.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiRGo5SGFXM0JxMkxXVXVGdjRuWWdiSHBaV0tHcTNSb1BEOVJwQXRKdiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wYXkvb3JkZXIvMTEiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToyO30=', 1751221166);
+('6SwwP3GK7g5J7fsx4L72egHPW8M0Gho1JbTUMhYY', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiY3l1WGU0Z205MlFwTGlCazNZczhMZEptUThkc0RvYkc3Q2dUMVNyeiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6MzoidXJsIjthOjA6e319', 1751292507);
 
 -- --------------------------------------------------------
 
@@ -283,7 +308,8 @@ INSERT INTO `type_of_services` (`id`, `service_name`, `price`, `description`, `c
 (7, 'Cuci dan Gosok', 5000, 'Cuci dan Gosok Rp. 5.000 per kg', '2025-06-25 06:46:28', '2025-06-25 06:53:29', NULL),
 (8, 'Hanya Cuci', 4500, 'Hanya Cuci Rp. 4.500 per kg', '2025-06-25 06:47:01', '2025-06-25 06:53:29', NULL),
 (9, 'Hanya Gosok', 5000, 'Hanya Gosok Rp. 5.000 per kg', '2025-06-25 06:47:21', '2025-06-25 06:53:29', NULL),
-(10, 'Selimut, karpet, mantel dan sprei my love', 7000, 'Jika Laundry besar seperti selimut, karpet, mantel dan sprei my love harga Rp.7.000 per kg', '2025-06-25 06:47:52', '2025-06-25 06:53:29', NULL);
+(10, 'Selimut, karpet, mantel dan sprei my love', 7000, 'Jika Laundry besar seperti selimut, karpet, mantel dan sprei my love harga Rp.7.000 per kg', '2025-06-25 06:47:52', '2025-06-25 06:53:29', NULL),
+(13, 'ggg', 345, 'dfgdfgd', '2025-06-30 07:08:18', '2025-06-30 07:08:22', '2025-06-30 07:08:22');
 
 -- --------------------------------------------------------
 
@@ -293,6 +319,7 @@ INSERT INTO `type_of_services` (`id`, `service_name`, `price`, `description`, `c
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `id_level` bigint(20) UNSIGNED DEFAULT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
@@ -306,8 +333,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'Admin', 'admin@gmail.com', NULL, '$2y$12$0P4O0W8Xbsmby1vKB1aey.VyfjBx/XM2AZ9i49WSvHxMfcm57g89S', NULL, '2025-06-25 05:02:22', '2025-06-25 05:02:22');
+INSERT INTO `users` (`id`, `id_level`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(3, 1, 'Admin', 'admin@gmail.com', NULL, '$2y$12$uxU5br7Xqs60IEhY.MtmNek2Xx7tsi0LW6QdjEmUciVvr12n4jMSO', NULL, '2025-06-30 06:14:25', '2025-06-30 06:14:25'),
+(4, 2, 'Operator', 'operator@gmail.com', NULL, '$2y$12$ot.t8Obf/8X0Yj28rq9SL.vFAXrTe0.2rRX/owk45/.0d./Fdl8k2', NULL, '2025-06-30 06:53:55', '2025-06-30 06:53:55');
 
 --
 -- Indexes for dumped tables
@@ -359,6 +387,12 @@ ALTER TABLE `job_batches`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `levels`
+--
+ALTER TABLE `levels`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -404,7 +438,8 @@ ALTER TABLE `type_of_services`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
+  ADD UNIQUE KEY `users_email_unique` (`email`),
+  ADD KEY `users_id_level_foreign` (`id_level`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -435,10 +470,16 @@ ALTER TABLE `jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `levels`
+--
+ALTER TABLE `levels`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `trans_order`
@@ -456,13 +497,13 @@ ALTER TABLE `trans_order_detail`
 -- AUTO_INCREMENT for table `type_of_services`
 --
 ALTER TABLE `type_of_services`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -480,6 +521,12 @@ ALTER TABLE `trans_order`
 ALTER TABLE `trans_order_detail`
   ADD CONSTRAINT `trans_order_detail_id_order_foreign` FOREIGN KEY (`id_order`) REFERENCES `trans_order` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `trans_order_detail_id_service_foreign` FOREIGN KEY (`id_service`) REFERENCES `type_of_services` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_id_level_foreign` FOREIGN KEY (`id_level`) REFERENCES `levels` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

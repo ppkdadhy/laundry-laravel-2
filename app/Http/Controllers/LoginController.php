@@ -21,10 +21,13 @@ class LoginController extends Controller
 
         $credentials = $request->only('email', 'password');
         // jika email dan password betul
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials) && Auth::user()->id_level === 1) {
             $request->session()->regenerate();
             return redirect()->intended('dashboard');
             // return redirect()->to('dashboard');
+        }elseif (Auth::attempt($credentials) && Auth::user()->id_level === 2) {
+            $request->session()->regenerate();
+            return redirect()->intended('operator/dashboard');
         }
 
         return back()->withErrors([

@@ -14,6 +14,10 @@ class DashboardController extends Controller
     {
         return view('dashboard.index');
     }
+    public function indexOperator()
+    {
+        return view('operator.dashboard');
+    }
     public function indexService()
     {
         $services = Service::orderBy('id', 'DESC')->get();

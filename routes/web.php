@@ -18,7 +18,7 @@ Route::get('login', [App\Http\Controllers\LoginController::class, 'login'])->nam
 Route::post('actionLogin', [App\Http\Controllers\LoginController::class, 'actionLogin'])->name('actionLogin');
 Route::get('logout', [App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('dashboard', App\Http\Controllers\DashboardController::class);
 
     //tYPE OF SERVICE
@@ -32,8 +32,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('service/restore/{id}', [ServiceController::class, 'restore'])->name('service.restore');
     Route::delete('service/destroy/{id}', [ServiceController::class, 'destroy'])->name('service.destroy');
 
+});
 
-    //TRANSACTION
+Route::middleware(['auth', 'operator'])->group(function (){
+
+    Route::get('operator/dashboard', [DashboardController::class, 'indexOperator']);
+        //TRANSACTION
     Route::get('transaction', [TransactionController::class, 'index'])->name('transaction');
     Route::get('order/transaction', [TransactionController::class, 'create']);
     Route::get('/search-customers', [TransactionController::class, 'searchCustomer']);

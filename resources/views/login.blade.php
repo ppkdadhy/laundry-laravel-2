@@ -96,7 +96,12 @@
                                             </div>
                                         </div>
                                         <div class="col-12">
-                                            <button class="btn btn-primary w-100" type="submit">Login</button>
+                                            @if (Auth::user())
+                                                <a class="btn btn-primary w-100" href="{{ Auth::user()->id_level === 1 ? url('dashboard') : (Auth::user()->id_level === 2 ? url('operator/dashboard') : '') }}">Dashboard</a>
+                                            @else
+                                                <button class="btn btn-primary w-100" type="submit">Login</button>
+                                            @endif
+                                            
                                         </div>
                                         <div class="col-12">
                                             <p class="small mb-0">Don't have account? <a

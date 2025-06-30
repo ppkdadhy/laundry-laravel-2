@@ -3,13 +3,14 @@
      <ul class="sidebar-nav" id="sidebar-nav">
 
          <li class="nav-item">
-             <a class="nav-link collapsed" href="{{ url('dashboard') }}">
+             <a class="nav-link collapsed" href="{{ Auth::user()->id_level === 1 ? url('dashboard') : (Auth::user()->id_level === 2 ? url('operator/dashboard') : '') }}">
                  <i class="bi bi-grid"></i>
                  <span>Dashboard</span>
              </a>
          </li><!-- End Dashboard Nav -->
 
-         <li class="nav-item">
+         @if (Auth::user()->id_level === 1)
+                      <li class="nav-item">
              <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                  <i class="bi bi-menu-button-wide"></i><span>Master Data</span><i
                      class="bi bi-chevron-down ms-auto"></i>
@@ -86,13 +87,16 @@
                      </a>
                  </li> --}}
              </ul>
-         </li><!-- End Components Nav -->
-                  <li class="nav-item">
-             <a class="nav-link collapsed" href="{{ url('transaction') }}">
-                 <i class="bi bi-grid"></i>
-                 <span>Transaction</span>
-             </a>
          </li>
+         @elseif (Auth::user()->id_level === 2)
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ url('transaction') }}">
+                    <i class="bi bi-grid"></i>
+                    <span>Transaction</span>
+                </a>
+            </li>
+         @endif
+<!-- End Components Nav -->
 
      </ul>
 
